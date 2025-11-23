@@ -420,7 +420,7 @@ MonoBehaviour:
   speedMultiplier: 0.0003
   startDelay: 1
   backgroundSwitcher: {fileID: 1518707992}
-  spawnCooldown: 0.25
+  spawnInterval: 3
 --- !u!212 &280054903
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3331,7 +3331,7 @@ MonoBehaviour:
   speedMultiplier: 0.0003
   startDelay: 0
   backgroundSwitcher: {fileID: 1518707992}
-  spawnCooldown: 0.25
+  spawnInterval: 3
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
