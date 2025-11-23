@@ -19,8 +19,6 @@ public class Options : MonoBehaviour
         else
         {
             setMasterVolume();
-            setMusicVolume();
-            setSFXVolume();
         }
        
     }
@@ -37,34 +35,10 @@ public class Options : MonoBehaviour
         PlayerPrefs.SetFloat("MasterVolume", volume);
     }
 
-    public void setMusicVolume()
-    {
-        float volume = musicSlider.value;
-        Audio.SetFloat("Music", Mathf.Log10(volume)*20);
-        PlayerPrefs.SetFloat("MusicVolume", volume);
-    }
-
-    public void setSFXVolume()
-    {
-        float volume = SFXSlider.value;
-        Audio.SetFloat("SFX", Mathf.Log10(volume)*20);
-        PlayerPrefs.SetFloat("SFXVolume", volume);
-    }
-
-    public void SetQuality(int qualityIndex)
-    {
-        QualitySettings.SetQualityLevel(qualityIndex);
-    }
-
     public void loadVolume()
     {
         masterSlider.value = PlayerPrefs.GetFloat("MasterVolume");
-        musicSlider.value = PlayerPrefs.GetFloat("SFXVolume");
-        SFXSlider.value = PlayerPrefs.GetFloat("MusicVolume");
-
         setMasterVolume();
-        setMusicVolume();
-        setSFXVolume();
     }
 
     public void LoadMenu()

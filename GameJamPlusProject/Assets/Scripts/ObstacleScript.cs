@@ -12,10 +12,6 @@ public class ObstacleScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("nextLine"))
-        {
-            obstacleGenerator.generateWithGap();
-        }
         if (collision.gameObject.CompareTag("finishLine"))
         {
             Destroy(this.gameObject);

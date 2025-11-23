@@ -7,9 +7,12 @@ using UnityEngine.SceneManagement;
 public class MainMenuManager : MonoBehaviour
 {
     public Options options;
+    public TextMeshProUGUI MyHighScore;
+    public float HighScore;
    
     void Start()
     {
+        HighScore = PlayerPrefs.GetFloat("HighScore", 0);
        if (PlayerPrefs.HasKey("MasterVolume"))
         {
             options.loadVolume();
@@ -17,9 +20,9 @@ public class MainMenuManager : MonoBehaviour
         else
         {
             options.setMasterVolume();
-            options.setMusicVolume();
-            options.setSFXVolume();
         }
+
+        MyHighScore.text = "HighScore: " + HighScore.ToString("F");
     }
 
 

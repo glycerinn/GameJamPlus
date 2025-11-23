@@ -7,12 +7,15 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] bool Alive = true;
     Rigidbody2D myRb;
     public float jumpForce;
-    float score;
+    public float score;
     public TextMeshProUGUI ScoreTXT;
     public GameOverManager gameOverManager;
+    public Animator animator;
+    public float highScore;
 
     private void Awake()
-    {
+    {   
+        highScore = PlayerPrefs.GetFloat("HighScore", 0);
         myRb = GetComponent<Rigidbody2D>();
     }
 
@@ -27,10 +30,16 @@ public class PlayerScript : MonoBehaviour
             }    
         }
 
+        animator.SetBool("Duck", Input.GetKey(KeyCode.DownArrow));
+
         if (Alive)
         {
             score += Time.deltaTime * 4;
             ScoreTXT.text = "Score: " + score.ToString("F");
+            if (score > PlayerPrefs.GetFloat("HighScore", 0))
+            {
+            PlayerPrefs.SetFloat("HighScore", score);
+            }
         }
     }
  
